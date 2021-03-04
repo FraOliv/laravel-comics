@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
 
 @section('title')
  Home
@@ -7,7 +7,7 @@
 @section('content')
 
 <h1>Create</h1>
-<form action="{{route('comics.store')}}" method="post">
+<form action="{{route('comics.store')}}" method="post"  enctype="multipart/form-data" >
     @csrf
     @method('POST')
    
@@ -43,6 +43,12 @@
     <textarea class="form-control" name="rate" id="rate" rows="3" required></textarea>
     <small class="text-muted">Inserisci il rate del fumetto</small>
   </div>
+
+           <div class="form-group">
+            <label for="cover">Cover</label>
+    <input type="file" class="form-control-file" name="cover" id="cover" placeholder="Add a cover image" aria-describedby="fileHelpId">
+    <small id="fileHelpId" class="form-text text-muted">Add a cover image for the current Novel</small>
+           </div>
   
 <button type="submit" class="btn btn-primary">
     Submit

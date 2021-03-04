@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
 
 @section('title')
 comics 
@@ -35,7 +35,10 @@ comics
     <tr>
         <td>{{$value->id}}</td>
         <td>{{$value->title}}</td>
-        <td><img src="{{asset($value->cover)}}" alt=""></td>
+        <td>@if ($value->cover)
+            <img src="{{ asset('storage/' . $value->cover) }}" alt="">  
+            <img src="{{ asset($value->cover) }}" alt="">    
+          @endif</td>
         <td>{{$value->price}}</td>
         <td>{{$value->number_page}}</td>
         <td>{{$value->chapter}}</td>
