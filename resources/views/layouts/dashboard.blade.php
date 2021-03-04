@@ -79,6 +79,7 @@
                     <ul class="list-unstyled">
                       
                         <li><a href="{{ route('comics.index')}}">Comics</a></li>
+                        <li><a href="{{ route('series.index')}}">Series</a></li>
                     
                     </ul>
                 </div>

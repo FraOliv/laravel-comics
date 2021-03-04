@@ -3,12 +3,12 @@
 Edit
     
 @endsection
-@section('main_content')
+@section('content')
 
 
 
  <h1>Edit: " {{$comic->title}} "</h1>
-    <form action="{{route('comic.update', ['comic'=>$comic->id])}}" method="post">
+    <form action="{{route('comics.update', ['comic'=>$comic->id])}}" method="post">
         @csrf
         @method('PUT')
 

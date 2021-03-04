@@ -2,15 +2,16 @@
 
 @section('title')
 
-Descrizione Post
+Descrizione Comics
     
 @endsection
 
 
-@section('main_content')
+@section('content')
 
 <div class="container" class="d-flex">
     <div>Title: {{$comic->title}}</div>
+    <div><img src="{{asset($comic->cover)}}" alt=""></div>
     <div>price: {{$comic->price}}</div>
     <div>Number of pages: {{$comic->number_page}}</div>
     <div>chapter: {{$comic->chapter}}</div>

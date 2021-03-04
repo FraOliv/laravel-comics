@@ -19,7 +19,7 @@ comics
             <th>Number_page</th>
             <th>Chapter</th>
             <th>Rate</th>
-            <th>Cover</th>
+
             <th>Actions</th>
         </tr>
 
@@ -38,17 +38,21 @@ comics
         <td><img src="{{asset($value->cover)}}" alt=""></td>
         <td>{{$value->price}}</td>
         <td>{{$value->number_page}}</td>
+        <td>{{$value->chapter}}</td>
         <td>{{$value->rate}}</td>
-        <td>{{$value->cover}}</td>
+
         
-        <td><a href="">View</a>
-           
+   
+    
+           <td><a href="{{route('comics.show', ['comic'=>$value->id])}}">View</a>
+            <a href="{{route('comics.edit', $value->id )}}">Edit</a>
+            <form action="{{route('comics.destroy', $value->id )}}" method="post">
             @csrf
             @method('DELETE')
             <button class="btn btn-danger" type="submit"> Delete</button>
-            </form>
-        </td>
     </tr>
+
+            </form>
     @empty
     <tr>
         <td>no comics in here</td>

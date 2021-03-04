@@ -4,7 +4,7 @@
  Home
     
 @endsection
-@section('main_content')
+@section('content')
 
 <h1>Create</h1>
 <form action="{{route('comics.store')}}" method="post">

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Serie;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
 
 class SerieController extends Controller
 {
@@ -14,7 +16,9 @@ class SerieController extends Controller
      */
     public function index()
     {
-        //
+        $series = Serie::all();
+        //dd($series);
+        return view('admin.series.index', compact('series'));
     }
 
     /**
@@ -24,7 +28,7 @@ class SerieController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.series.create');
     }
 
     /**
@@ -35,7 +39,12 @@ class SerieController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $newserie = new Serie;
+        $newserie->title = $request->title;
+
+        $newserie->save();
+        return redirect()->route('series.index');
     }
 
     /**
@@ -44,9 +53,10 @@ class SerieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($serie)
     {
-        //
+        $serie = Serie::find($serie);
+        return view('admin.series.show', compact('serie'));
     }
 
     /**
@@ -55,9 +65,10 @@ class SerieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($serie)
     {
-        //
+        $serie = Serie::find($serie);
+        return view('admin.series.edit', compact('serie'));
     }
 
     /**
@@ -67,9 +78,15 @@ class SerieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $serie)
     {
-        //
+        $serie = serie::find($serie);
+
+        $newserie = new Serie;
+        $newserie->title = $request->title;
+        $serie->cover = 'cover';
+        $serie->save();
+        return redirect()->route('series.index');
     }
 
     /**
@@ -78,8 +95,10 @@ class SerieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($serie)
     {
-        //
+        $serie = serie::find($serie);
+        $serie->delete();
+        return redirect()->route('series.index');
     }
 }
