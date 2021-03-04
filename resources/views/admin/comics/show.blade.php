@@ -1,10 +1,23 @@
-@extends('layouts.dashboard')
+@extends('layouts.app')
 
-@section('content')
-<div class="card">
-  <div class="card-body">
-    <h4 class="card-title">{{ $comic->title }}</h4>
-    <p class="card-text">{{ $comic->slug }}</p>
-  </div>
+@section('title')
+
+Descrizione Post
+    
+@endsection
+
+
+@section('main_content')
+
+<div class="container" class="d-flex">
+    <div>Title: {{$comic->title}}</div>
+    <div>price: {{$comic->price}}</div>
+    <div>Number of pages: {{$comic->number_page}}</div>
+    <div>chapter: {{$comic->chapter}}</div>
+    <div> rate: {{$comic->rate}} </div>
+
+
 </div>
+
+    
 @endsection

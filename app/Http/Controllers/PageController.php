@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class Pagecontroller extends Controller
+class PageController extends Controller
 {
-
     public function index()
     {
         return view('guests.index');

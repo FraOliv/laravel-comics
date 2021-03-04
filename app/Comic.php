@@ -10,4 +10,8 @@ class Comic extends Model
     {
         return $this->belongsToMany(Author::class);
     }
+    public function series()
+    {
+        return $this->belongsToMany(Serie::class);
+    }
 }

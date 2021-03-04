@@ -1,32 +1,60 @@
-@extends('layouts.dashboard')
+@extends('layouts.app')
 
+@section('title')
+comics 
+    
+@endsection
 @section('content')
-<h1>All Comics for Admin</h1>
 
-<table class="table table-striped table-inverse table-responsive">
-    <thead class="thead-inverse">
+<a href="{{route('comics.create')}}" class="btn btn-dark">
+    Create a new Post
+</a>
+<table class="table">
+    <thead>
         <tr>
             <th>ID</th>
             <th>Title</th>
-           
+            <th>Cover</th>
+            <th>Price</th>
+            <th>Number_page</th>
+            <th>Chapter</th>
+            <th>Rate</th>
+            <th>Cover</th>
             <th>Actions</th>
         </tr>
-        </thead>
-        <tbody>
-            @foreach ($comics as $comic)
-            <tr>
-                <td scope="row">{{ $comic->id }}</td>
-                <td>{{ $comic->title }}</td>
-                <td>{{ $comic->slug }}</td>
-                <td>
-                    <a class="btn btn-primary p-1" href="{{ route('admin.comics.show', ['comic' => $comic->slug]) }}">View</a>
-                    <a class="btn btn-primary p-1" href="#">Edit</a>
-                    <a class="btn btn-primary p-1" href="#">Delete</a>
-                </td>
-            </tr>
-                
-            @endforeach
+
+
+
+    </thead>
+
+
+
+
+<tbody>
+    @forelse ($comics as $value)
+    <tr>
+        <td>{{$value->id}}</td>
+        <td>{{$value->title}}</td>
+        <td><img src="{{asset($value->cover)}}" alt=""></td>
+        <td>{{$value->price}}</td>
+        <td>{{$value->number_page}}</td>
+        <td>{{$value->rate}}</td>
+        <td>{{$value->cover}}</td>
+        
+        <td><a href="">View</a>
            
-        </tbody>
+            @csrf
+            @method('DELETE')
+            <button class="btn btn-danger" type="submit"> Delete</button>
+            </form>
+        </td>
+    </tr>
+    @empty
+    <tr>
+        <td>no comics in here</td>
+    </tr>
+    @endforelse
+</tbody>
 </table>
+    
 @endsection

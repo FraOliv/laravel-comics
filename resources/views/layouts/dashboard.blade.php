@@ -73,6 +73,15 @@
                 </div>
             </div>
         </nav>
+          <div class="container py-4">
+            <div class="row">
+                <div class="col-xs-12 col-md-3 col-lg-2">
+                    <ul class="list-unstyled">
+                      
+                        <li><a href="{{ route('comics.index')}}">Comics</a></li>
+                    
+                    </ul>
+                </div>
 
         <div class="container py-4">
             <div class="row">
