@@ -8,7 +8,7 @@ Edit
 
 
  <h1>Edit: " {{$comic->title}} "</h1>
-    <form action="{{route('comics.update', ['comic'=>$comic->id])}}" method="post">
+   <form action="{{route('comics.store')}}" method="post"  enctype="multipart/form-data" >
         @csrf
         @method('PUT')
 
@@ -56,6 +56,11 @@ Edit
         @error('rate')
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror
+        <div class="form-group">
+    <label for="cover">Cover</label>
+    <input type="file" class="form-control-file" name="cover" id="cover" placeholder="Add a cover image" aria-describedby="fileHelpId" value="{{ $comic->cover }}" required>
+    <small id="fileHelpId" class="form-text text-muted">Add a cover image for the current Novel</small>
+    </div>
 
 
         <button type="submit" class="btn btn-primary">Submit</button>

@@ -48,7 +48,7 @@ comics
    
     
            <td><a href="{{route('comics.show', ['comic'=>$value->id])}}">View</a>
-            <a href="{{route('comics.edit', $value->id )}}">Edit</a>
+            <a href="{{route('comics.edit', ['comic'=>$value->id])}}">Edit</a>
             <form action="{{route('comics.destroy', $value->id )}}" method="post">
             @csrf
             @method('DELETE')

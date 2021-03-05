@@ -72,9 +72,8 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($comic)
+    public function edit(Comic $comic)
     {
-        $comic = Comic::find($comic);
         return view('admin.comics.edit', compact('comic'));
     }
 
