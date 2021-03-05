@@ -5,6 +5,7 @@ namespace App\Http\Controllers\guests;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Comic;
+use App\Serie;
 
 class PageController extends Controller
 {
@@ -12,7 +13,8 @@ class PageController extends Controller
     {
 
         $comics = Comic::all();
+        $series = Serie::all();
         
-        return view('guests.homepage', compact('comics'));
+        return view('guests.homepage', compact('comics', 'series'));
     }
 }

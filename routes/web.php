@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'guests\PageController@homepage');
 Route::get('guestcomics', 'ComicController@index')->name('guestcomic');
 Route::get('guestcomics/{{comic}}', 'ComicController@show');
+Route::get('guestseries/{{serie}}', 'SerieController@show');
+
+
 
 
 
