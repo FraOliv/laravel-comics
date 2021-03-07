@@ -24,6 +24,10 @@ class ComicSeeder extends Seeder
             $newComic->chapter = $faker->numberBetween(1, 1000);
             $newComic->rate = $faker->numberBetween(1, 1000);
             $newComic->cover = $item['cover'];
+            $newComic->description = $faker->text(1000);
+            $newComic->on_sale_date = $faker->date('Y_m_d');
+            $newComic->available = $faker->boolean();
+            $newComic->trim_size = $faker->randomElement(['6 5/8', '10 3/16']);
 
 
             $newComic->save();
